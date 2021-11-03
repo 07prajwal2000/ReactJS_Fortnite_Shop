@@ -1,0 +1,35 @@
+.shop-items{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 10px 10px 10px 10px;
+    flex-direction: row;
+}
+
+@keyframes card-null-img-animation{
+    0%{
+        background-color: #ffffff;
+    }
+    25%{
+        background-color: #e6e6e6;
+    }
+    50%{
+        background-color: #c4c4c4;
+    }
+    75%{
+        background-color: #e6e6e6;
+    }
+    100%{
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+.shop-null-items{
+    height: 80vh;
+    width: 80vw;
+    margin: auto;
+    animation-name: card-null-img-animation;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+}
