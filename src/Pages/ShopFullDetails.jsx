@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react'
 import './Styles/ShopFullDetails.css'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
+import 'tippy.js/themes/light.css';
+import 'tippy.js/animations/scale.css';
 
 const ShopFullDetails = ({match}) => {
  
@@ -15,7 +17,6 @@ const ShopFullDetails = ({match}) => {
         },
 
     });
-
 
     const [isItemFound, SetItemFound] = useState(false);
     useEffect( async ()=> {
@@ -49,7 +50,9 @@ const ShopFullDetails = ({match}) => {
                 <div>
                         <div className="container">
                             <div className="item item-header">{itemWithId.item.name}</div>
-                            <img className="item item-image" src={itemWithId.item.images.icon} alt="image"/>
+                            <Tippy content={<span>{itemWithId.item.name}</span>} duration={200} placement='bottom' interactive={true} theme={'material'} animation='scale' >
+                                <img className="item item-image" src={itemWithId.item.images.icon} alt="image"/>
+                            </Tippy>
                             <div className="item item-main-info">
                                 <div className="item-content">
                                     <b>Content</b> 
@@ -90,5 +93,10 @@ const ShopFullDetails = ({match}) => {
     )
 }
 
-
 export default ShopFullDetails
+
+const TippyButton = () => (
+    <Tippy content={<span>Tooltippp</span>} duration={200} placement='bottom' interactive={true} theme={'material'} animation='scale' >
+      <button>My button</button>
+    </Tippy>
+  );
